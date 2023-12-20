@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HelloController extends AbstractController
 {
-    #[Route('/hello/{firstname}', name: 'app_hello')] // {firstname} paramètre dynamique
+    #[Route('/hello/{firstname<^[a-zA-Z\-À-ú]+$>}', name: 'app_hello')] // {firstname} paramètre dynamique
     public function index(string $firstname): Response
     {
         return $this->render('hello/index.html.twig', [ // on doit passer la var au template twig
