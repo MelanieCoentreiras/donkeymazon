@@ -20,11 +20,11 @@ class Product
     #[ORM\Column(length: 3000, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0')]
+    #[ORM\Column(type: Types::FLOAT, precision: 10, scale: '0')]
     private ?string $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Category $Category = null;
 
     public function getId(): ?int
